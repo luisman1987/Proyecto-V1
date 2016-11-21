@@ -1,0 +1,13 @@
+{% extends 'blogperros/base.html' %}
+
+   {% block content %}
+   <div>
+     <img src="{{post.foto.url}}" width="250" height="250">
+       <h1>{{ post.nombre }}</h1>
+       <h4>{{ post.apellido }}</h4>
+       <h4>{{ post.perros }}</h4>
+       <h4>{{ post.dpi|linebreaksbr }}</h4>
+       <a class="btn btn-default" href="{% url 'blogperros.views.editar_persona' pk=post.pk %}"><span class="glyphicon glyphicon-pencil">Editar</span></a>
+       <br>
+   </div>
+   {% endblock %}

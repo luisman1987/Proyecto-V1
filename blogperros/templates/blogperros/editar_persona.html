@@ -1,0 +1,9 @@
+{% extends 'blogperros/base.html' %}
+
+{% block content %}
+    <h1>Nueva Persona</h1>
+    <form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit" class="save btn btn-default">Guardar</button>
+    </form>
+{% endblock %}
