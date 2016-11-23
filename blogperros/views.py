@@ -5,6 +5,7 @@ from blogperros.forms import PerroForm
 from django.shortcuts import redirect
 from blogperros.models import Persona, Asignacion
 from blogperros.forms import PersonaForm
+from django.contrib import messages
 
 #Autenticacion
 from django.contrib.auth.models import User
@@ -28,12 +29,12 @@ def main(request):
     return render_to_response('blogperros/main.html', {}, context_instance=RequestContext(request))
 
 
-@login_required()
+
 def listado_perros(request):
     posts = Perro.objects.all()
     return render(request, 'blogperros/listado_perros.html', {'posts': posts})
 
-@login_required()
+
 def detalle_perro(request, pk):
     post = get_object_or_404(Perro, pk=pk)
     return render(request, 'blogperros/detalle_perro.html', {'post': post})
@@ -50,6 +51,7 @@ def perro_nuevo(request):
             form = PerroForm()
         return render(request, 'blogperros/editar_perro.html', {'form': form})
 
+@login_required()
 def perro_eliminar(request, pk=None):
     instance = get_object_or_404(Perro, pk=pk)
     instance.delete()

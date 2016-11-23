@@ -19,6 +19,7 @@ class PersonaForm(forms.ModelForm):
         self.fields["perros"].help_text = "Ingrese los Perros"
         self.fields["perros"].queryset = Perro.objects.all()
 
+
 class SignUpForm(ModelForm):
     class Meta:
         model = User

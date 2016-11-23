@@ -71,20 +71,22 @@
     <div class="sticky-nav">
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
 
-        <div id="logo">
-        	<a id="goUp" href="#home-slider" title="Brushed | Responsive One Page Template">Brushed Template</a>
-        </div>
+
+
 
         <nav id="menu">
         	<ul id="menu-nav">
             	<li class="current"><a href="{% url 'blogperros.views.asignacion_nueva' %}">Asignacion</a></li>
                 <li><a href="{% url 'blogperros.views.listado_personas' %}">Personas</a></li>
                 <li><a href="{% url 'blogperros.views.persona_nueva' %}">Nueva Persona</a></li>
-                <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+
                 {% if user.is_authenticated%}
-                <li><a href="shortcodes.html" class="external">{{user.username}}</a></li>
+                <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                <li><a href="" class="external">{{user.username}}</a></li>
                 {% else %}
-                <li><a href="shortcodes.html" class="external">Anonimo</a></li>
+
+                <li><a href="{% url 'login' %}">Iniciar Sesion</a></li>
+                <li><a href="{% url 'signup' %}">Registrarse</a></li>
                 {% endif%}
             </ul>
         </nav>

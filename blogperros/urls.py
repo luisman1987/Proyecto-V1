@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^listado/personas/$', 'blogperros.views.listado_personas', name='listado'),
     url(r'^persona/detalle/(?P<pk>[0-9]+)/$', 'blogperros.views.detalle_persona'),
     url(r'^persona/nueva/$', 'blogperros.views.persona_nueva', name='persona_nueva'),
-    url(r'^editar/(?P<pk>[0-9]+)/edit/$', 'blogperros.views.editar_persona', name='post_edit'),
+    url(r'^editar/(?P<pk>[0-9]+)/$', 'blogperros.views.editar_persona', name='post_edit'),
 
     url(r'^Menu/$', 'blogperros.views.main', name='main'),
     url(r'^signup$', 'blogperros.views.signup', name='signup'),
