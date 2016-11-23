@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^perro_detalle/(?P<pk>[0-9]+)/$', 'blogperros.views.detalle_perro'),
     url(r'^perro/nuevo/$', 'blogperros.views.perro_nuevo', name='post_new'),
     url(r'^post/(?P<pk>[0-9]+)/edit/$', 'blogperros.views.perro_editar', name='editar'),
+    url(r'^eliminar/(?P<pk>[0-9]+)/edit/$', 'blogperros.views.perro_eliminar', name='eliminar'),
+
 
     url(r'^listado/personas/$', 'blogperros.views.listado_personas', name='listado'),
     url(r'^persona/detalle/(?P<pk>[0-9]+)/$', 'blogperros.views.detalle_persona'),

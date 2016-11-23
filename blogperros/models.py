@@ -23,6 +23,8 @@ class Persona(models.Model):
 class Asignacion(models.Model):
     perro = models.ForeignKey(Perro, on_delete=models.CASCADE)
     persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.perro.nombre
 
 class AsignacionInLine(admin.TabularInline):
     model = Asignacion

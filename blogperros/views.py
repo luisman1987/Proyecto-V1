@@ -45,10 +45,16 @@ def perro_nuevo(request):
             if form.is_valid():
                 post = form.save(commit=False)
                 post.save()
-                return redirect('blogperros.views.perro_editar', pk=post.pk)
+                return redirect('blogperros.views.listado_perros', pk=post.pk)
         else:
             form = PerroForm()
         return render(request, 'blogperros/editar_perro.html', {'form': form})
+
+def perro_eliminar(request, pk=None):
+    instance = get_object_or_404(Perro, pk=pk)
+    instance.delete()
+    redirect('blogperros.views.listado_perros')
+    return HttpResponseRedirect('/home')
 
 @login_required()
 def perro_editar(request, pk):
@@ -71,7 +77,8 @@ def listado_personas(request):
 @login_required()
 def detalle_persona(request, pk):
     post = get_object_or_404(Persona, pk=pk)
-    return render(request, 'blogperros/detalle_persona.html', {'post': post})
+    perros = Asignacion.objects.filter(persona=post)
+    return render(request, 'blogperros/detalle_persona.html', {'post': post, 'perros':perros})
 
 
 @login_required()
