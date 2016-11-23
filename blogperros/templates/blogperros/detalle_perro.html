@@ -2,14 +2,14 @@
 
    {% block content %}
    <div>
-     <img src="{{post.imagen.url}}" width="250" height="250">
+     <img src="{{post.imagen.url}}" id="destacada">
        <h1>{{ post.nombre }}</h1>
        <h4>{{ post.color }}</h4>
        <h4>{{ post.raza }}</h4>
        <h4>{{ perro.nombre }}</h4>
        <h4>{{ post.fecha_nacimiento|linebreaksbr }}</h4>
        <a class="btn btn-default" href="{% url 'blogperros.views.perro_editar' pk=post.pk %}">Editar<span class="glyphicon glyphicon-pencil"></span></a>
-      <br>
+      
       <a class="btn btn-default" href="{% url 'eliminar' pk=post.pk %}">Eliminar<span class="glyphicon glyphicon-pencil"></span></a>
 
    </div>

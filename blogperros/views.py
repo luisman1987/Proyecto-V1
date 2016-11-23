@@ -45,7 +45,7 @@ def perro_nuevo(request):
             if form.is_valid():
                 post = form.save(commit=False)
                 post.save()
-                return redirect('blogperros.views.listado_perros', pk=post.pk)
+                return redirect('blogperros.views.perro_editar', pk=post.pk)
         else:
             form = PerroForm()
         return render(request, 'blogperros/editar_perro.html', {'form': form})
